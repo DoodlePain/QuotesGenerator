@@ -3,6 +3,13 @@ import Quote from './Quote';
 import Footer from './Footer';
 import './App.css';
 
+
+
+// TO DO : FADE ANIMATION
+
+
+
+
 class App extends Component {
 
   constructor(props) {
