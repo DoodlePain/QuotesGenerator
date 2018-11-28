@@ -1,26 +1,50 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Quote from './Quote';
+import Footer from './Footer';
 import './App.css';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      quote: 'Lorem Ipsum',
+      author: 'Lorem Ipsum'
+    }
+
+    this.escFunction = this.escFunction.bind(this);
+  }
+
+  setQuote() {
+    fetch('https://talaikis.com/api/quotes/random/')
+      .then(response => response.json())
+      .then(data =>
+
+        this.setState({
+          quote: data.quote,
+          author: data.author
+        })
+      );
+  }
+
+  escFunction(event) {
+    if (event.keyCode === 32) {
+      this.setQuote()
+    }
+  }
+  componentDidMount() {
+    this.setQuote()
+    document.addEventListener("keydown", this.escFunction, false);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.escFunction, false);
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <div className="App-header">
+        <Quote quote={this.state} />
+        <Footer />
+      </div >
     );
   }
 }
