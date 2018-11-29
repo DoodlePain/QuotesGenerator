@@ -5,7 +5,7 @@ class Footer extends Component {
         return (
             <div className="footer">
                 <p className="hint">Press space to inspire</p>
-                <p className="credits">Made with love from <p className="spin"><a href="http://www.doodlepain.me/profile/">DoodlePain</a></p></p>
+                <div className="credits">Made with love from <p className="spin"><a href="http://www.doodlepain.me/profile/">DoodlePain</a></p></div>
             </div >
         );
     }

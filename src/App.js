@@ -3,13 +3,6 @@ import Quote from './Quote';
 import Footer from './Footer';
 import './App.css';
 
-
-
-// TO DO : FADE ANIMATION
-
-
-
-
 class App extends Component {
 
   constructor(props) {
@@ -20,6 +13,7 @@ class App extends Component {
     }
 
     this.escFunction = this.escFunction.bind(this);
+    this.rend = (<div>"Lorem Ipsum"</div>)
   }
 
   setQuote() {
@@ -32,6 +26,7 @@ class App extends Component {
           author: data.author
         })
       );
+    this.rend = <Quote quote={this.state} />
   }
 
   escFunction(event) {
@@ -49,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App-header">
-        <Quote quote={this.state} />
+        {this.rend}
         <Footer />
       </div >
     );

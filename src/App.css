@@ -56,14 +56,14 @@
     color: rgba(255, 255, 255, 0.5)
 }
 
+.credits {
+    position: relative;
+    left: 65%;
+}
+
 .hint {
     position: relative;
     left: 5%;
-}
-
-.credits {
-    position: relative;
-    left: 45%;
 }
 
 a {
@@ -81,4 +81,45 @@ a {
 .spin:hover {
     -webkit-transform: rotate(20deg);
     transform: rotate(20deg);
+}
+
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
+@keyframes fade-out-animation {
+    0% {
+        opacity: 100;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadein {
+    animation: fade-in-animation 1s;
+    opacity: 100;
+}
+
+.fade-out {
+    animation: fade-out-animation 0.5s;
+    opacity: 0;
+}
+
+.active {
+    opacity: 100;
+}
+
+.example-appear {
+    opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
 }
